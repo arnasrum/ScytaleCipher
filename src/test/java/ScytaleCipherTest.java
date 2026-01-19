@@ -32,11 +32,14 @@ public class ScytaleCipherTest {
         String message = "ABCDE";
         ScytaleCipher.fillRoll(roll, message);
 
-        assertEquals('A', roll[0][0]);
-        assertEquals('B', roll[0][1]);
-        assertEquals('C', roll[0][2]);
-        assertEquals('D', roll[1][0]);
-        assertEquals('E', roll[1][1]);
+        assertAll("Roll should be filled with message characters",
+                () -> assertEquals('A', roll[0][0]),
+                () -> assertEquals('B', roll[0][1]),
+                () -> assertEquals('C', roll[0][2]),
+                () -> assertEquals('D', roll[1][0]),
+                () -> assertEquals('E', roll[1][1])
+        );
+
     }
 
     @Test
