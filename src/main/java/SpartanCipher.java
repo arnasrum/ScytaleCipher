@@ -51,11 +51,4 @@ public class SpartanCipher {
 
         return cipherText.toString().trim();
     }
-
-
-
-    void main(String[] args) {
-        System.out.println(cipher("Mubashir Scytale Code", 6));
-        System.out.println(cipher("Tesh is the love of my life.", 4));
-    }
 }
