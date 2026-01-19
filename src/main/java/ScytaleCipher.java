@@ -6,11 +6,11 @@ public class ScytaleCipher {
 
         int nCol = getNumberOfColumns(message.length(), nSlide);
 
-        char[][] roll = initializeGrid(nSlide, nCol);
+        char[][] grid = initializeGrid(nSlide, nCol);
 
-        fillGrid(roll, message);
+        fillGrid(grid, message);
 
-        return extractCipherFromGrid(roll);
+        return extractCipherFromGrid(grid);
     }
 
     public static int getNumberOfColumns(int textLength, int nSlide) {
