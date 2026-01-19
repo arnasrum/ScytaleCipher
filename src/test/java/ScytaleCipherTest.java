@@ -11,10 +11,10 @@ public class ScytaleCipherTest {
     }
 
     @Test
-    void initializeRoll_givenPositiveAmountsNumRowsAndColumns_initializesWithWhiteSpaces() {
+    void initializeGrid_givenPositiveNumRowsAndColumns_initializesWithWhiteSpaces() {
         int rows = 3;
         int cols = 4;
-        char[][] roll = ScytaleCipher.initializeRoll(rows, cols);
+        char[][] roll = ScytaleCipher.initializeGrid(rows, cols);
 
         assertEquals(rows, roll.length);
         assertEquals(cols, roll[0].length);
@@ -27,10 +27,10 @@ public class ScytaleCipherTest {
     }
 
     @Test
-    void fillRoll_givenValidMessage_fillsRollWithCharacters() {
+    void fillGrid_givenValidMessage_fillsGridWithCharacters() {
         char[][] roll = new char[2][3];
         String message = "ABCDE";
-        ScytaleCipher.fillRoll(roll, message);
+        ScytaleCipher.fillGrid(roll, message);
 
         assertAll("Roll should be filled with message characters",
                 () -> assertEquals('A', roll[0][0]),
@@ -43,13 +43,13 @@ public class ScytaleCipherTest {
     }
 
     @Test
-    void extractCipherFromRoll_givenFilledRoll_returnsCipherString() {
+    void extractCipherFromGrid_givenPopulatedGrid_returnsCipherString() {
         char[][] roll = {
             {'A', 'B', 'C'},
             {'D', 'E', ' '}
         };
 
-        String result = ScytaleCipher.extractCipherFromRoll(roll);
+        String result = ScytaleCipher.extractCipherFromGrid(roll);
         assertEquals("ADBEC", result);
     }
 

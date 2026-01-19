@@ -4,28 +4,27 @@ public class ScytaleCipher {
 
     public static String cipher(String message, int nSlide) {
 
-
         int nCol = getNumberOfColumns(message.length(), nSlide);
 
-        char[][] roll = initializeRoll(nSlide, nCol);
+        char[][] roll = initializeGrid(nSlide, nCol);
 
-        fillRoll(roll, message);
+        fillGrid(roll, message);
 
-        return extractCipherFromRoll(roll);
+        return extractCipherFromGrid(roll);
     }
 
     public static int getNumberOfColumns(int textLength, int nSlide) {
         return Math.ceilDiv(textLength, nSlide);
     }
 
-    public static char[][] initializeRoll(int rows, int cols) {
+    public static char[][] initializeGrid(int rows, int cols) {
         char[][] roll = new char[rows][cols];
         for(char[] charArray: roll)
             Arrays.fill(charArray, ' ');
         return roll;
     }
 
-    public static void fillRoll(char[][] roll, String message) {
+    public static void fillGrid(char[][] roll, String message) {
 
         int n = roll.length;
         int m = roll[0].length;
@@ -38,7 +37,7 @@ public class ScytaleCipher {
         }
     }
 
-    public static String extractCipherFromRoll(char[][] roll) {
+    public static String extractCipherFromGrid(char[][] roll) {
 
         int n = roll[0].length;
 
