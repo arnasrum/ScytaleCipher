@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class SpartanCipher {
+public class ScytaleCipher {
 
     public static String cipher(String message, int nSlide) {
 
