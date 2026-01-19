@@ -11,14 +11,7 @@ public class SpartanCipher {
 
         fillRoll(roll, message);
 
-        StringBuilder cipherText = new StringBuilder();
-        for(int i = 0; i < nCol; i++) {
-            for(int j = 0; j < nSlide; j++) {
-                cipherText.append(roll[j][i]);
-            }
-        }
-
-        return cipherText.toString().trim();
+        return extractCipherFromRoll(roll);
     }
 
     public static int getNumberOfColumns(int textLength, int nSlide) {
@@ -43,6 +36,20 @@ public class SpartanCipher {
                 roll[i][j] = message.charAt(i * m + j);
             }
         }
+    }
+
+    public static String extractCipherFromRoll(char[][] roll) {
+
+        int n = roll[0].length;
+
+        StringBuilder cipherText = new StringBuilder();
+        for(int i = 0; i < n; i++) {
+            for (char[] chars : roll) {
+                cipherText.append(chars[i]);
+            }
+        }
+
+        return cipherText.toString().trim();
     }
 
 
